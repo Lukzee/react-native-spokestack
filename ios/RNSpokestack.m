@@ -239,14 +239,13 @@ RCT_EXPORT_METHOD(initialize:(NSDictionary *)config)
         self.speechConfig.wakewords = ([config valueForKeyPath:@"properties.wakewords"]) ? [RCTConvert NSString:[config valueForKeyPath:@"properties.wakewords"]] : self.speechConfig.wakewords;
         self.speechConfig.wakewordRequestTimeout = ([config valueForKeyPath:@"properties.wake-request-timeout"]) ? [RCTConvert NSInteger:[config valueForKeyPath:@"properties.wake-request-timeout"]] : self.speechConfig.wakewordRequestTimeout;
     }
-    
+
     /// MARK: TTS configuration
-    
-    self.speechConfig.apiId = ([config valueForKeyPath:@"tts.api-id"]) ? [RCTConvert NSString:[config valueForKeyPath:@"properties.api-id"]] : self.speechConfig.apiId;
-    self.speechConfig.apiSecret = ([config valueForKeyPath:@"tts.api-id"]) ? [RCTConvert NSString:[config valueForKeyPath:@"tts.api-secret"]] : self.speechConfig.apiSecret;
-    
+    self.speechConfig.apiId = ([config valueForKeyPath:@"tts.spokestack-id"]) ? [RCTConvert NSString:[config valueForKeyPath:@"properties.spokestack-id"]] : self.speechConfig.apiId;
+    self.speechConfig.apiSecret = ([config valueForKeyPath:@"tts.spokestack-secret"]) ? [RCTConvert NSString:[config valueForKeyPath:@"tts.spokestack-secret"]] : self.speechConfig.apiSecret;
+
     /// MARK: NLU configuration
-    
+
     self.speechConfig.nluModelPath = ([config valueForKeyPath:@"nlu.nlu-model-path"]) ? [RCTConvert NSString:[config valueForKeyPath:@"nlu.nlu-model-path"]] : self.speechConfig.nluModelPath;
     self.speechConfig.nluModelMetadataPath = ([config valueForKeyPath:@"nlu.nlu-metadata-path"]) ? [RCTConvert NSString:[config valueForKeyPath:@"nlu.nlu-metadata-path"]] : self.speechConfig.nluModelMetadataPath;
     self.speechConfig.nluVocabularyPath = ([config valueForKeyPath:@"nlu.wordpiece-vocab-path"]) ? [RCTConvert NSString:[config valueForKeyPath:@"nlu.wordpiece-vocab-path"]] : self.speechConfig.nluVocabularyPath;
